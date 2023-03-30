@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!--   
+        初识Vue:
+          1.想让Vue工作，就必须创建一个Vue实例
+          2.root 容器里的代码依旧符合HTML规范，不过引入了Vue的语法
+          3.root 容器里的代码被称为【Vue模板】
+          4.实例和容器是一一对应的
+          5.真实的开发环境中只有一个 Vue 实例，并且会配合多个容器使用
+          6.{{xxx}}中的 xxx 要写 js 表达式, 且 xxx 可以自动读取 data 中的所有属性
+          7.一旦 data 中的数据发生改变，那么模板中用到该数据的地方也会自动更新
+
+          注意区分: js 表达式 和 js 代码(语句)
+            1.表达式: 一个表达式会生成一个值，可以放在任何一个需要值的地方:
+               (1). a
+               (2). a + b
+               (3). demo(1)
+               (4). x == y ? a : b
+            
+            2.js代码(语句)
+               (1). if(){}
+               (2). for(){}
+     -->
+
+    <div id="root">
+        <h1>Hello {{name}} {{address}} {{Date.now()}}</h1>
+    </div>
+
+    <script type="text/javascript">
+        // 阻止生产提示
+        Vue.config.productionTip = false
+
+        // 创建一个Vue实例
+        const vm = new Vue({
+            el: '#root', // 挂载点
+            data: { // 数据
+                name: '严宇琪',
+                address:'湖北'
+            }
+        })
+      //  vm.$mount('#root') // 挂载与 el: '#root' 效果一样
+    </script>
+</body>
+</html>
